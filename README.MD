@@ -2,7 +2,7 @@ Primeiro CRUD utilizando Programação Orientada a Objeto, utilizando PDO.
 
 Frontend tosco sem CSS, somente para fins de estudos.
 
-- Inicialmente, este CRUD foi feito com padrão Singleton pelo professor da Node Studio, mas não foi aplicado neste estudo.
+- Inicialmente, este CRUD foi feito com padrão Singleton e MVC pelo professor da Node Studio, mas não foi aplicado neste estudo. A única coisa que restou disso tudo foi a pastinha chamada Model a qual contém as classes.
 
 Basicamente temos os arquivos: 
 
