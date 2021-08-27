@@ -19,8 +19,8 @@ class ExecutaDB {
     }
 
     static function indexDeleteUserDB($id){
-        $deleteUser = new DB();
-        $deleteUser->delete($id);
+        $db = new DB();
+        $db->delete($id);
         header("Refresh: 0; index.php");
     }
 
@@ -30,8 +30,8 @@ class ExecutaDB {
         $User->setEmail($email);
         $User->setID($id);
 
-        $editaUser = new DB();
-        $editaUser->update($User);
+        $db = new DB();
+        $db->update($User);
         header("Refresh: 0; index.php");
     }
 
@@ -46,8 +46,8 @@ class ExecutaDB {
             $User->setNome($nome);
             $User->setEmail($email);
 
-            $insertUser = new DB();
-            $insertUser->insert($User);
+            $db = new DB();
+            $db->insert($User);
             header("Refresh: 0; index.php");
         }
     }
