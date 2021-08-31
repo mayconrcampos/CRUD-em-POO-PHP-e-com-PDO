@@ -45,7 +45,9 @@ include_once("./Model/IndexDB.php")
     </div>
 
     <?php
-        // Se os campos foram preenchidos, os métodos abaixo serão chamados.
+        // Se o botão for presssionado, o método irá ser invocado...
+        // Questões de validação de entrada de inputs são realizados nos métodos da classe IndexDB.
+        
         // Note bem que os métodos que são chamados pelo botão só funcionam aqui abaixo do form. Já os que recebem variáveis via get, funcionam na parte acima do formulário.
         if(isset($_POST['btn'])){
             IndexDB::SwitchEditaOuInsere($_POST['nome'], $_POST['email'], $_GET['edita']);
