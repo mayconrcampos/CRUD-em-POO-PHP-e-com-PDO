@@ -21,10 +21,9 @@ include_once("./Model/executaDB.php")
 
     <?php 
         // Tanto delete, quanto o edita só funcionam aqui acima do form. 
-        
-
         // Trazendo nome e email do DB para dentro dos campos nome e email, através do ID
         if(!empty($_GET['edita']) and empty($_POST['nome']) and empty($_POST['email'])){
+            //echo $_GET['edita'];
             $nomeSenha = ExecutaDB::indexSelectUserDB($_GET['edita']);
         }
         // Trazendo id via Get sob nome delete para deletar o item e dar refresh na página
@@ -41,27 +40,16 @@ include_once("./Model/executaDB.php")
             <label for="">Email</label>
             <input type="email" name="email" value="<?php echo (empty($_GET['edita'])) ? "" : $nomeSenha[1]; ?>">
 
-            <button type="submit" id="btn"><?php echo (!empty($_GET['edita']) ? "Altera" : "Cadastra") ?></button>
+            <button type="submit" name="btn"><?php echo (!empty($_GET['edita']) ? "Altera" : "Cadastra") ?></button>
         </form>
     </div>
 
     <?php
         // Se os campos foram preenchidos, os métodos abaixo serão chamados.
         // Note bem que os métodos que são chamados pelo botão só funcionam aqui abaixo do form. Já os que recebem variáveis via get, funcionam na parte acima do formulário.
-        
-        if(isset($_POST['btn'])) {
-            if(!empty($_POST['nome']) and !empty($_POST['email'])) {
-                if(!empty($_GET['edita'])){
-                    // Altera usuário
-                    ExecutaDB::indexInsertOrEditUser($_POST['nome'], $_POST['email'], $_GET['edita']);
-
-                }else{
-                    // Insere usuário
-                    ExecutaDB::indexInsertOrEditUser($_POST['nome'], $_POST['email']);
-                }
-            }else{
-                echo "Erro. Preencher os dois campos. Garotinho Ixpertinho";
-            }
+        if(isset($_POST['btn'])){
+                //echo "Nome: ".$_POST['nome']." Email".$_POST['email'];
+            ExecutaDB::indexEditaOuInsere($_POST['nome'], $_POST['email'], $_GET['edita']);
         }
     ?>
 
