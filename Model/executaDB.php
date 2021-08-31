@@ -6,7 +6,7 @@ use App\Model\Usuario;
 include_once("./DB.php");
 include_once("./conexao.php");
 
-class ExecutaDB {
+class IndexDB {
 
     static function indexSelectUserDB($id){
         $listaUser = New DB();
@@ -24,11 +24,15 @@ class ExecutaDB {
         header("Refresh: 0; index.php");
     }
 
-    public static function indexEditaOuInsere($nome, $email, $id=null){
+
+
+    // Método Switch - Ele recebe três parâmetros e decide se vai executar o insert ou update na tabela.
+
+    public static function SwitchEditaOuInsere($nome, $email, $id=null){
         if(!empty($id)){
-            ExecutaDB::indexEditarUserDB($nome, $email, $id);
+            IndexDB::indexEditarUserDB($nome, $email, $id);
         }else{
-            ExecutaDB::indexInsertUser($nome, $email);
+            IndexDB::indexInsertUser($nome, $email);
         }
     }
 

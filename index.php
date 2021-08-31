@@ -5,7 +5,7 @@ use App\Model\DB;
 include_once("./Model/DB.php");
 include_once("./Model/Produto.php");
 include_once("./Model/usuarios.php");
-include_once("./Model/executaDB.php")
+include_once("./Model/IndexDB.php")
 ?>
 
 <!DOCTYPE html>
@@ -24,11 +24,11 @@ include_once("./Model/executaDB.php")
         // Trazendo nome e email do DB para dentro dos campos nome e email, através do ID
         if(!empty($_GET['edita']) and empty($_POST['nome']) and empty($_POST['email'])){
             //echo $_GET['edita'];
-            $nomeSenha = ExecutaDB::indexSelectUserDB($_GET['edita']);
+            $nomeSenha = IndexDB::indexSelectUserDB($_GET['edita']);
         }
         // Trazendo id via Get sob nome delete para deletar o item e dar refresh na página
         if(!empty($_GET['delete'])){
-            ExecutaDB::indexDeleteUserDB($_GET['delete']);
+            IndexDB::indexDeleteUserDB($_GET['delete']);
         }
     ?>
 
@@ -48,7 +48,7 @@ include_once("./Model/executaDB.php")
         // Se os campos foram preenchidos, os métodos abaixo serão chamados.
         // Note bem que os métodos que são chamados pelo botão só funcionam aqui abaixo do form. Já os que recebem variáveis via get, funcionam na parte acima do formulário.
         if(isset($_POST['btn'])){
-            ExecutaDB::indexEditaOuInsere($_POST['nome'], $_POST['email'], $_GET['edita']);
+            IndexDB::SwitchEditaOuInsere($_POST['nome'], $_POST['email'], $_GET['edita']);
         }
     ?>
 
