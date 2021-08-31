@@ -48,7 +48,6 @@ include_once("./Model/executaDB.php")
         // Se os campos foram preenchidos, os métodos abaixo serão chamados.
         // Note bem que os métodos que são chamados pelo botão só funcionam aqui abaixo do form. Já os que recebem variáveis via get, funcionam na parte acima do formulário.
         if(isset($_POST['btn'])){
-                //echo "Nome: ".$_POST['nome']." Email".$_POST['email'];
             ExecutaDB::indexEditaOuInsere($_POST['nome'], $_POST['email'], $_GET['edita']);
         }
     ?>
