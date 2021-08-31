@@ -23,7 +23,6 @@ include_once("./Model/IndexDB.php")
         // Tanto delete, quanto o edita só funcionam aqui acima do form. 
         // Trazendo nome e email do DB para dentro dos campos nome e email, através do ID
         if(!empty($_GET['edita']) and empty($_POST['nome']) and empty($_POST['email'])){
-            //echo $_GET['edita'];
             $nomeSenha = IndexDB::indexSelectUserDB($_GET['edita']);
         }
         // Trazendo id via Get sob nome delete para deletar o item e dar refresh na página
@@ -47,7 +46,7 @@ include_once("./Model/IndexDB.php")
     <?php
         // Se o botão for presssionado, o método irá ser invocado...
         // Questões de validação de entrada de inputs são realizados nos métodos da classe IndexDB.
-        
+
         // Note bem que os métodos que são chamados pelo botão só funcionam aqui abaixo do form. Já os que recebem variáveis via get, funcionam na parte acima do formulário.
         if(isset($_POST['btn'])){
             IndexDB::SwitchEditaOuInsere($_POST['nome'], $_POST['email'], $_GET['edita']);
@@ -79,7 +78,7 @@ include_once("./Model/IndexDB.php")
             </tbody>
         </table>
     </div>
-    <a href="./index2.php">Refresh</a>
+    <a href="./Model/refresh.php">Refresh</a>
     
 </body>
 </html>

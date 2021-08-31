@@ -8,7 +8,7 @@ include_once("./conexao.php");
 
 class IndexDB {
 
-    static function indexSelectUserDB($id){
+    public static function indexSelectUserDB($id){
         $listaUser = New DB();
         foreach($listaUser->select($id) as $user){
             $nome = $user['nome'];
@@ -17,6 +17,9 @@ class IndexDB {
 
         return array($nome, $email);
     }
+
+
+
 
     static function indexDeleteUserDB($id){
         $db = new DB();
